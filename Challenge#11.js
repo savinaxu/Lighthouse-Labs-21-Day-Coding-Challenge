@@ -1,23 +1,14 @@
-// ## Challenge #8
-// The little duck-shaped robot shudders back and forth for a moment, and his eyes flash as he releases a barrage of ten quacks. "Thank you!" he exclaims.
+// ## Challenge #11
+// "Beacon active!" LARRY sounds as pleased as a robot can be. In fact, you spot the faintest hint of smile on his robot duck bill.
 
-// "COMMUNICATION MODULE NEEDED," LARRY blares suddenly. He repeats it twice more - he’s rather insistent! Luckily, you've got the code for this. Load the module called "communication" using findModuleIndex() and loadModule() from before.
+// "Calibration QUACK complete! Now start RADIO! NEED to use the RADIO! QUACK QUACK!"
 
-const findModuleIndex = name => {
-    let index = 0
-    for (let i = 0; i < availableModules.length; i++) {
-        if (availableModules[i].name === name) {
-            index = i
-            break;
-        }
-    }
-    return index
+// LARRY's prompt sends you back to the ship's manual, where you find an entire section about the radio. You notice that the radio has a feature you missed before, the range! Your particular radio has a range of 88 to 108 MHz, much like the FM radio in your car back on Earth. There's a note in the manual that says that the radio should be tuned to the same frequency as the lower end plus the upper end, and that total divided by two.
+
+// Write a function called setFrequency() that will set the frequency property on the radio object using the above formula.
+
+// Be careful because not all radios will have the same range, so make sure your code is reuseable. Instead of coding the numbers directly into your equation use dot notation to access them from the radio object, which you can see by clicking the Show Global Objects link above.
+
+const setFrequency = () => {
+    radio.frequency = (radio.range.low + radio.range.high) / 2
 }
-
-const loadModule = index => {
-    let target = availableModules[index]
-    target.enabled = true
-    ship.modules.push(target)
-}
-
-loadModule(findModuleIndex("communication"))
