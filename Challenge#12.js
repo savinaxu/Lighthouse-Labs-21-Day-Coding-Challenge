@@ -1,23 +1,14 @@
-// ## Challenge #8
-// The little duck-shaped robot shudders back and forth for a moment, and his eyes flash as he releases a barrage of ten quacks. "Thank you!" he exclaims.
+// ## Challenge #12
+// "QUACK! Navigation system offline!" blares LARRY. "Initialization sequence broken!"
 
-// "COMMUNICATION MODULE NEEDED," LARRY blares suddenly. He repeats it twice more - he’s rather insistent! Luckily, you've got the code for this. Load the module called "communication" using findModuleIndex() and loadModule() from before.
+// You quickly check the documentation for the navigation system and find out that the nav system's initialization sequence needs three values, because you are in three-dimensional space. It needs an X, Y, and Z value.
 
-const findModuleIndex = name => {
-    let index = 0
-    for (let i = 0; i < availableModules.length; i++) {
-        if (availableModules[i].name === name) {
-            index = i
-            break;
-        }
-    }
-    return index
+// Your next task is to write a function called initialize() which will set the x, y, and z values correctly to start off at 0 in the navigation system. For example, the navigation system's x value is navigation.x.
+
+// Don't worry about calling your initialize() function, this one runs automatically
+
+const initialize = () => {
+    navigation.x = 0
+    navigation.y = 0
+    navigation.z = 0
 }
-
-const loadModule = index => {
-    let target = availableModules[index]
-    target.enabled = true
-    ship.modules.push(target)
-}
-
-loadModule(findModuleIndex("communication"))
