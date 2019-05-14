@@ -1,23 +1,24 @@
-// ## Challenge #8
-// The little duck-shaped robot shudders back and forth for a moment, and his eyes flash as he releases a barrage of ten quacks. "Thank you!" he exclaims.
+// ## Challenge #14
+// "X Calibrated!" LARRY quacks happily. "Y and Z need calibration now! QUACK!"
 
-// "COMMUNICATION MODULE NEEDED," LARRY blares suddenly. He repeats it twice more - he’s rather insistent! Luckily, you've got the code for this. Load the module called "communication" using findModuleIndex() and loadModule() from before.
+// Let's write calibrateY() and calibrateZ(). The manual says you'll need to loop from 1 to 60, and again you have to call checkSignal() each time.
 
-const findModuleIndex = name => {
-    let index = 0
-    for (let i = 0; i < availableModules.length; i++) {
-        if (availableModules[i].name === name) {
-            index = i
+const calibrateY = () => {
+    for (let i = 0; i < 60; i++) {
+        let signal = checkSignal();
+        if (signal) {
+            navigation.y = signal;
             break;
         }
     }
-    return index
-}
+};
 
-const loadModule = index => {
-    let target = availableModules[index]
-    target.enabled = true
-    ship.modules.push(target)
-}
-
-loadModule(findModuleIndex("communication"))
+const calibrateZ = () => {
+    for (let i = 0; i < 60; i++) {
+        let signal = checkSignal();
+        if (signal) {
+            navigation.z = signal;
+            break;
+        }
+    }
+};
